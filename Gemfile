@@ -46,6 +46,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'aws-sdk', '< 2.0'
 gem 'rails_12factor', group: :production
 
 
