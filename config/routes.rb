@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, :at => '/'
-          # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
+  Spree::Core::Engine.add_routes do
+    namespace :admin do
+      resources :users do
+        post :reset_password, on: :member
+      end
+    end
+  end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
